@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MovieList from "./components/MovieList.js";
+import MovieList from "./components/MovieList";
 import Filter from "./components/Filter";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -14,9 +14,10 @@ function App() {
     {
       title: "Stranger Things",
       description: "A sci-fi series set in the 80s.",
-      posterURL: "https://m.media-amazon.com/images/I/81w+3k4U5-L._AC_SL1500_.jpg",
+      posterURL:
+        "https://m.media-amazon.com/images/I/81w+3k4U5-L._AC_SL1500_.jpg",
       rating: 4,
-    }
+    },
   ]);
 
   const [filterTitle, setFilterTitle] = useState("");
@@ -26,12 +27,11 @@ function App() {
     setMovies([...movies, newMovie]);
   };
 
-  const filteredMovies = movies.filter((movie) => {
-    return (
+  const filteredMovies = movies.filter(
+    (movie) =>
       movie.title.toLowerCase().includes(filterTitle.toLowerCase()) &&
       movie.rating >= filterRating
-    );
-  });
+  );
 
   return (
     <div className="container mt-4">
